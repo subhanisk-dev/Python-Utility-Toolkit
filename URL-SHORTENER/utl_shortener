@@ -1,0 +1,19 @@
+import pyshorteners
+ 
+long_url = input("Enter the long URL : ")
+ 
+try:
+    shortener = pyshorteners.Shortener()
+ 
+    # TinyURL does not require any API key
+    short_url = shortener.tinyurl.short(long_url)
+ 
+    print("Original URL  :", long_url)
+    print("Shortened URL :", short_url)
+ 
+    # expanding a short url back to the original one
+    print("Expanded back :", shortener.tinyurl.expand(short_url))
+ 
+except Exception as e:
+    print("Could not shorten the URL. Check your internet connection.")
+    print("Error :", e)
